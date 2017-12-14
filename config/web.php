@@ -7,6 +7,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -50,12 +51,15 @@ $config = [
             'suffix' => '',
             'rules' => [
                 [
+                    'class' => 'app\components\DynamicUrlRule'
+                ],
+                [
                     'pattern' => '',
                     'route' => 'site/index',
                     'suffix' => ''
                 ],
-                //'<action:(about|contact|login)>' => 'site/<action>',
                 '<action:\w+>' => 'site/<action>',
+                '<action:\w+>' => 'post/<action>',
             ],
         ],
 
