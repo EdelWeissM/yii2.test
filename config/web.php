@@ -7,6 +7,11 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+        'pageslist' => [
+            'class' => 'app\modules\pageslist\Module',
+        ],
+    ],
     'language' => 'ru',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
