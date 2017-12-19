@@ -8,10 +8,11 @@
 
 namespace app\modules\pageslist\controllers;
 
-use Yii;
+
 use app\controllers\AppController;
-use app\models\Page;
-use yii\web\HttpException;
+use app\modules\pageslist\models\Page;
+//use yii\web\HttpException;
+//use Yii;
 
 class ListController extends AppController
 {

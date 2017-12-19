@@ -1,13 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: mparkhomenko
- * Date: 11.12.2017
- * Time: 11:51
+ * Date: 19.12.2017
+ * Time: 10:43
  */
 
-namespace app\models;
-
+namespace app\modules\pageslist\models;
 
 use yii\db\ActiveRecord;
 
@@ -17,7 +17,6 @@ class Page extends ActiveRecord
     {
         return '{{%pages}}';
     }
-
     public function getPages(){
         return $this->hasMany(Page::className(), ['parent_id' => 'id']);
     }
