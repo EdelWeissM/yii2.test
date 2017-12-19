@@ -28,12 +28,8 @@ class DynamicRoute extends BaseObject implements UrlRuleInterface
     {
         $pathInfo = $request->getPathInfo();
         if (preg_match('%^(\w+)(/(\w+))?$%', $pathInfo, $matches)) {
-            // Ищем совпадения $matches[1] и $matches[3]
-            // с данными manufacturer и model в базе данных
-            // Если нашли, устанавливаем $params['manufacturer'] и/или $params['model']
-            // и возвращаем ['car/index', $params]
         }
-        return false;  // данное правило не применимо
+        return false;
     }
 
     /**
@@ -45,10 +41,8 @@ class DynamicRoute extends BaseObject implements UrlRuleInterface
      */
     public function createUrl($manager, $route, $params)
     {
-        if ($route === 'module/pagelist/list/index') {
-            if (isset($params['pages'])) {
+        if ($route === 'pagelist/list/index') {
                 return $params['url'];
-            }
         }
         return false;  // данное правило не применимо
     }
