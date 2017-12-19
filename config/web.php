@@ -56,7 +56,7 @@ $config = [
             'suffix' => '',
             'rules' => [
                 [
-                    'class' => 'app\components\DynamicUrlRule'
+                    'class' => 'app\modules\pageslist\DynamicRoute'
                 ],
                 [
                     'pattern' => '',
