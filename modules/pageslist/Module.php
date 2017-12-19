@@ -11,7 +11,7 @@ namespace app\modules\pageslist;
 
 class Module extends \yii\base\Module
 {
-    //public $controllerNamespace = 'app\modules\pageslist\controllers';
+    public $controllerNamespace = 'app\modules\pageslist\controllers';
 
     public function init()
     {

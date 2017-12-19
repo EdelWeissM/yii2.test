@@ -46,9 +46,9 @@ class DynamicUrlRule extends BaseObject implements UrlRuleInterface
      */
     public function createUrl($manager, $route, $params)
     {
-        if ($route === 'list/index') {
+        if ($route === 'module/pagelist/list/index') {
             if (isset($params['pages'])) {
-                return $params['pages'];
+                return $params['url'];
             }
         }
         return false;  // данное правило не применимо
