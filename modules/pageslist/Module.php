@@ -8,7 +8,10 @@
 
 namespace app\modules\pageslist;
 
-
+/**
+ * Class Module for control page list
+ * @package app\modules\pageslist
+ */
 class Module extends \yii\base\Module
 {
     public $controllerNamespace = 'app\modules\pageslist\controllers';
