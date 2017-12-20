@@ -8,8 +8,8 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
-        'pageslist' => [
-            'class' => 'app\modules\pageslist\Module',
+        'pages' => [
+            'class' => 'app\modules\pages\Module',
         ],
     ],
     'language' => 'ru',
@@ -56,7 +56,7 @@ $config = [
             'suffix' => '',
             'rules' => [
                 [
-                    'class' => 'app\modules\pageslist\DynamicRoute'
+                    'class' => 'app\modules\pages\DynamicRoute'
                 ],
                 [
                     'pattern' => '',
@@ -65,6 +65,7 @@ $config = [
                 ],
                 '<action:\w+>' => 'site/<action>',
                 '<action:\w+>' => 'post/<action>',
+                '<action:\w+>' => 'pages/list/<action>',
             ],
         ],
 

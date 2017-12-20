@@ -6,13 +6,13 @@
  * Time: 10:43
  */
 
-namespace app\modules\pageslist\models;
+namespace app\modules\pages\models;
 
 use yii\db\ActiveRecord;
 
 /**
  * * Class Page
- * @package app\modules\pageslist\models
+ * @package app\modules\pages\models
  */
 class Page extends ActiveRecord
 {

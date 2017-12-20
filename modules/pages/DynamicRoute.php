@@ -6,13 +6,13 @@
  * Time: 11:44
  */
 
-namespace app\modules\pageslist;
+namespace app\modules\pages;
 
 use yii\base\BaseObject;
 use yii\web\Request;
 use yii\web\UrlManager;
 use yii\web\UrlRuleInterface;
-use app\modules\pageslist\models\Page;
+use app\modules\pages\models\Page;
 
 class DynamicRoute extends BaseObject implements UrlRuleInterface
 {
@@ -32,17 +32,17 @@ class DynamicRoute extends BaseObject implements UrlRuleInterface
         if (count($matches)) {
             $parent_id = null;
             foreach ($matches as $url) {
-                $page = Page::find()->where([
+                $article = Page::find()->where([
                     'url' => $url,
                     'hidden' => 0,
                     'parent_id' => $parent_id
                 ])->one();
-                if (!$page) {
+                if (!$article) {
                     return false;
                 }
-                $parent_id = $page->parent_id;
+                $parent_id = $article->parent_id;
             }
-            return ['pageslist/list/page', ['article' => $page]];
+            return ['pages/list/article', ['article' => $article]];
         }
         return false;
     }
@@ -57,7 +57,7 @@ class DynamicRoute extends BaseObject implements UrlRuleInterface
      */
     public function createUrl($manager, $route, $params)
     {
-        if ($route === 'pageslist/list/page') {
+        if ($route === 'pages/list/article') {
             return $params['article']['url'];
         }
         return false;  // данное правило не применимо

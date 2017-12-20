@@ -6,17 +6,17 @@
  * Time: 9:32
  */
 
-namespace app\modules\pageslist\controllers;
+namespace app\modules\pages\controllers;
 
 
 use app\controllers\AppController;
-use app\modules\pageslist\models\Page;
+use app\modules\pages\models\Page;
 
 use Yii;
 
 /**
  * Class ListController
- * @package app\modules\pageslist\controllers
+ * @package app\modules\pages\controllers
  */
 class ListController extends AppController
 {
@@ -31,9 +31,9 @@ class ListController extends AppController
     /**
      * @return string
      */
-    public function actionPage(){
+    public function actionArticle(){
         $list= Yii::$app->request->get('article');
-        return $this->render('page', ['list'=>$list]);
+        return $this->render('article', ['list'=>$list]);
 
     }
 }
