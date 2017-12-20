@@ -31,11 +31,11 @@ class DynamicRoute extends BaseObject implements UrlRuleInterface
 
         if (count($matches)) {
             $parent_id = null;
-            foreach ($matches as $url){
+            foreach ($matches as $url) {
                 $page = Page::find()->where([
                     'url' => $url,
                     'hidden' => 0,
-                    'parent_id'=> $parent_id
+                    'parent_id' => $parent_id
                 ])->one();
                 if (!$page) {
                     return false;

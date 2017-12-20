@@ -3,6 +3,6 @@
         <h3 class="panel-title"><?= $list->name ?></h3>
     </div>
     <div class="panel-body">
-        <?=$list->content?>
+        <?= $list->content ?>
     </div>
 </div>

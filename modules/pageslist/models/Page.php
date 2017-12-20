@@ -28,7 +28,8 @@ class Page extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPages(){
+    public function getPages()
+    {
         return $this->hasMany(Page::className(), ['parent_id' => 'id']);
     }
 }
