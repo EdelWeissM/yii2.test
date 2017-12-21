@@ -6,13 +6,17 @@
  * Time: 10:43
  */
 
+/**
+ * @author mparkhomenk
+ * @version 1.0
+ */
+
 namespace app\modules\pages\models;
 
 use yii\db\ActiveRecord;
 
 /**
- * * Class Page
- * @package app\modules\pages\models
+ * * Class Page witch work with db table "pages"
  */
 class Page extends ActiveRecord
 {

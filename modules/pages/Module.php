@@ -6,14 +6,17 @@
  * Time: 9:32
  */
 
+/**
+ * @author mparkhomenk
+ * @version 1.0
+ */
+
 namespace app\modules\pages;
 
 /**
  * Class Module for control page list
- * @package app\modules\pages
  */
 class Module extends \yii\base\Module
 {
     public $controllerNamespace = 'app\modules\pages\controllers';
-
 }

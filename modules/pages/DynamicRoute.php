@@ -6,6 +6,11 @@
  * Time: 11:44
  */
 
+/**
+ * @author mparkhomenk
+ * @version 1.0
+ */
+
 namespace app\modules\pages;
 
 use yii\base\BaseObject;
@@ -14,6 +19,9 @@ use yii\web\UrlManager;
 use yii\web\UrlRuleInterface;
 use app\modules\pages\models\Page;
 
+/**
+ * Class DynamicRoute for creating dynamic URL
+ */
 class DynamicRoute extends BaseObject implements UrlRuleInterface
 {
 
