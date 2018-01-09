@@ -11,6 +11,9 @@ $config = [
         'pages' => [
             'class' => 'app\modules\pages\Module',
         ],
+        'comments' => [
+            'class' => 'app\modules\comments\Module',
+        ],
     ],
     'language' => 'ru',
     'aliases' => [
@@ -63,9 +66,9 @@ $config = [
                     'route' => 'site/index',
                     'suffix' => ''
                 ],
-                '<action:\w+>' => 'site/<action>',
-                '<action:\w+>' => 'post/<action>',
                 '<action:\w+>' => 'pages/list/<action>',
+                '<action:\w+>' => 'site/<action>',
+
             ],
         ],
 

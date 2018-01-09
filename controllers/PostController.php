@@ -8,8 +8,7 @@
 
 namespace app\controllers;
 
-use Yii;
-use app\models\CommentForm;
+
 use app\models\Post;
 use app\models\Author;
 use yii\web\HttpException;
@@ -26,15 +25,5 @@ class PostController extends AppController
         $post = Post::findOne($id);
         if(empty($post)) throw new HttpException(404, 'Такой страници нет...');
         return $this->render('view', compact('post'));
-    }
-
-    public function actionTest()
-    {
-        $model = new CommentForm();
-
-        if( $model->load(Yii::$app->request->post()) ){
-            return $this->render('test', compact('model'));
-        }
-        return $this->render('test', compact('model'));
     }
 }
