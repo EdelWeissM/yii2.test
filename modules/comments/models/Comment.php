@@ -14,6 +14,9 @@ use yii\db\ActiveRecord;
 
 class Comment extends ActiveRecord
 {
+    const SCENARIO_FORM_GUEST = 'addCommentFromGuest';
+    const SCENARIO_FORM_USER = 'addCommentFromUser';
+
     public static function tableName()
     {
         return '{{%comments}}';
@@ -25,6 +28,14 @@ class Comment extends ActiveRecord
             'name' => 'Имя',
             'email' => 'E-mail',
             'content' => 'Текст сообщения',
+        ];
+    }
+
+    public function scenarios()
+    {
+        return [
+            self::SCENARIO_FORM_GUEST=>['email', 'name', 'content', 'class_name', 'identify_key'],
+            self::SCENARIO_FORM_USER=>['content', 'class_name', 'identify_key']
         ];
     }
 

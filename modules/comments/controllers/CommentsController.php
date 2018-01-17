@@ -10,25 +10,25 @@
 namespace app\modules\comments\controllers;
 
 use app\controllers\AppController;
-use app\modules\comments\models\CommentsForm;
 use app\modules\comments\models\Comment;
 use Yii;
 
 class CommentsController extends AppController
 {
-    public function actionIndex()
-    {
-        $model = new Comment();
+    public function actionSend(){
+        $module = Yii::$app->getModule('comments');
 
-        if( $model->load( Yii::$app->getRequest()->post() )) {
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Данные приняты');
-                return $this->refresh();
-            } else {
-                Yii::$app->session->setFlash('error', 'Ошибка');
-            }
+        if(Yii::$app->user->isGuest && !$module->guestCanComment){
+            return $this->redirect(Yii::$app->request->referrer?:Yii::$app->homeUrl);
         }
-
-        return $this->render('test', ['model'=>$model]);
+        $model = new Comment([
+            'scenario'=>Yii::$app->user->isGuest?Comment::SCENARIO_FORM_GUEST:Comment::SCENARIO_FORM_USER
+        ]);
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            $model->save();
+            return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+        }
+        Yii::$app->session->setFlash('error', 'Ошибка');
+        return $this->redirect(Yii::$app->request->referrer?:Yii::$app->homeUrl);
     }
 }

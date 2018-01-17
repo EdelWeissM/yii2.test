@@ -8,12 +8,24 @@
  */
 
 use yii\base\Widget;
+use app\modules\comments\models\Comment;
 
 class CommentForm extends Widget
 {
-    public function run()
+    function run()
     {
-        return $this->render('_form');
+        $model = new Comment();
+
+        if( $model->load( Yii::$app->getRequest()->post() )) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Данные приняты');
+                //return $this->refresh();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка');
+            }
+        }
+
+        return $this->render('_form', ['model'=>$model]);
     }
 
 }

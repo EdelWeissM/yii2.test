@@ -7,12 +7,14 @@
  */
 debug($model);
 ?>
+<?php foreach ($model as $comment): ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><?= 'Автор: ' . $model->name ?><br>
-            <?= 'Дата: ' . $model->date_update ?></h3>
+        <h3 class="panel-title"><?= 'Автор: ' . $comment->name ?><br>
+            <?= 'Дата: ' . $comment->date_update ?></h3>
     </div>
     <div class="panel-body">
-        <?= $model->content ?>
+        <?= $comment->content ?>
     </div>
 </div>
+<?php endforeach; ?>

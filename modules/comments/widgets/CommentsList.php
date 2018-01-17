@@ -6,11 +6,16 @@
  * Date: 16.01.2018
  * Time: 11:16
  */
-class CommentsList extends \yii\base\Widget
+
+use app\modules\comments\models\Comment;
+use yii\base\Widget;
+
+class CommentsList extends Widget
 {
 
     function run()
     {
-        return $this->render('_list');
+        $model = Comment::find()->all();
+        return $this->render('_list', ['model'=>$model]);
     }
 }
