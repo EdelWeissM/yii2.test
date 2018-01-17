@@ -33,7 +33,7 @@ class Comment extends ActiveRecord
             [['name', 'email', 'content'], 'required'],
             ['email', 'email'],
             ['content', 'trim'],
-            ['date_create', 'default', 'value' => 'datetime']
+            ['date_create', 'default', 'value' => 'datetime'],
         ];
     }
 

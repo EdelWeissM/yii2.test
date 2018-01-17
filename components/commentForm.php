@@ -1,34 +1,32 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: mparkhomenko
- * Date: 26.12.2017
- * Time: 14:00
+ * Date: 15.01.2018
+ * Time: 12:11
  */
 
-namespace app\modules\comments\controllers;
+namespace app\components;
 
-use app\controllers\AppController;
-use app\modules\comments\models\CommentsForm;
-use app\modules\comments\models\Comment;
 use Yii;
+use app\models\Comment;
+use yii\base\Widget;
 
-class CommentsController extends AppController
+class commentForm extends Widget
 {
-    public function actionIndex()
+    function run()
     {
         $model = new Comment();
 
         if( $model->load( Yii::$app->getRequest()->post() )) {
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Данные приняты');
-                return $this->refresh();
+                //return $this->refresh();
             } else {
                 Yii::$app->session->setFlash('error', 'Ошибка');
             }
         }
 
-        return $this->render('test', ['model'=>$model]);
+        return $this->render('comment-form', ['model'=>$model]);
     }
 }

@@ -16,7 +16,7 @@ use yii\helpers\Html; ?>
 <?php endif; ?>
 
 <div class="container">
-    <?php $form = ActiveForm::begin(['options' => ['id' => 'comment']]) ?>
+    <?php $form = ActiveForm::begin(['options' => ['id' => 'CommentForm']]) ?>
     <div class="row">
         <div class="col-lg-5">
             <?= $form->field($model, 'name') ?>

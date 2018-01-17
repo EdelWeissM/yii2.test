@@ -9,16 +9,11 @@
 
 use yii\base\Widget;
 
-class Comment extends Widget
+class CommentForm extends Widget
 {
-    public function init()
-    {
-
-    }
-
     public function run()
     {
-
+        return $this->render('_form');
     }
 
 }

@@ -22,7 +22,6 @@ class m171226_093338_create_comments_base extends Migration
 
         $this->createTable('{{%comments}}', [
             'id'=>$this->primaryKey(),
-            'identify_key'=>$this->integer()->defaultValue(null),
             'parent'=>$this->integer()->defaultValue(0)->comment('Родительский комментарий'),
             'content'=>$this->text()->defaultValue(null)->comment('Текст комментария'),
             'active'=>$this->integer(1)->defaultValue(1)->comment('Активность'),

@@ -17,17 +17,15 @@ class ChatController extends AppController
     {
         $model = new Comment();
 
-        /*if( Yii::$app->getRequest()->isPost ){
-            $model->load( Yii::$app->getRequest()->post() );
-            return $this->render('test', ['model'=>$model]);
-        }
-        return $this->render('test', ['model'=>$model]);*/
-
-        if( Yii::$app->getRequest()->isPost ){
-            if ($model->save()){
+        if( $model->load( Yii::$app->getRequest()->post() )) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка');
             }
         }
+
         return $this->render('test', ['model'=>$model]);
     }
 }
