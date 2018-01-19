@@ -8,6 +8,7 @@ $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?= \app\components\commentsList::widget() ?>
+<?= \app\components\commentForm::widget() ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -17,4 +18,3 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <code><?= __FILE__ ?></code>
 </div>
-<?= \app\components\commentForm::widget() ?>

@@ -26,3 +26,23 @@ use yii\helpers\Html; ?>
     </div>
     <?php $form = ActiveForm::end() ?><br>
 </div>
+<?php
+$js = <<<JS
+    $('form').on('beforeSubmit', function(){
+        var data = $(this).serialize();
+        $.ajax({
+        url: '/site/about.php',
+        type: 'POST',
+        data: data,
+            success: function(){              
+            },
+            error: function(){
+                alert('Error!');
+            }
+        });
+    });
+JS;
+
+$this->registerJs($js);
+
+?>

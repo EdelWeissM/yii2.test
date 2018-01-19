@@ -17,7 +17,7 @@ class ChatController extends AppController
     {
         $model = new Comment();
 
-        if( $model->load( Yii::$app->getRequest()->post() )) {
+        if( $model->load( Yii::$app->request->isAjax )) {
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();

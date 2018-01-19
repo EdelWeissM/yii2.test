@@ -5,7 +5,6 @@
  * Date: 16.01.2018
  * Time: 10:55
  */
-debug($model);
 ?>
 <?php foreach ($model as $comment): ?>
 <div class="panel panel-default">
